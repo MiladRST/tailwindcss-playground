@@ -1,0 +1,15 @@
+{
+  "name": "tailwindcss-playground",
+  "version": "1.0.0",
+  "description": "TailwindCSS play ground",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./src/css/index.css -o ./public/css/index.css --watch"
+  },
+  "author": "Milad Rastin",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
