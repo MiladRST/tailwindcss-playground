@@ -12,6 +12,12 @@ module.exports = {
       fontFamily: {
         iransans : ['iransans'],
         yekan: ['yekan']
+      },
+      stripesSize : {
+        sm: '12px',
+        md: '20px',
+        lg: '30px',
+        xl: '40px'
       }
     },
   },
@@ -73,6 +79,14 @@ module.exports = {
         })
       } , {
         values : theme('opacity')
+      })
+
+      matchUtilities({
+        'stripes-size': value => ({
+          '--stripes-size' : value
+        })
+      } , {
+        values: theme('stripesSize')
       })
 
     })

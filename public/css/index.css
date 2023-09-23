@@ -681,36 +681,36 @@ video {
   --stripes-angle: 45deg;
 }
 
+.stripes-opacity-10 {
+  --stripes-opacity: 0.1;
+}
+
 .stripes-opacity-20 {
   --stripes-opacity: 0.2;
 }
 
-.stripes-opacity-50 {
-  --stripes-opacity: 0.5;
+.stripes-opacity-25 {
+  --stripes-opacity: 0.25;
 }
 
 .stripes-opacity-30 {
   --stripes-opacity: 0.3;
 }
 
-.stripes-opacity-80 {
-  --stripes-opacity: 0.8;
+.stripes-size-xl {
+  --stripes-size: 40px;
 }
 
-.stripes-opacity-60 {
-  --stripes-opacity: 0.6;
+.stripes-size-\[90px\] {
+  --stripes-size: 90px;
 }
 
-.stripes-opacity-0 {
-  --stripes-opacity: 0;
+.stripes-size-sm {
+  --stripes-size: 12px;
 }
 
-.stripes-opacity-10 {
-  --stripes-opacity: 0.1;
-}
-
-.stripes-opacity-25 {
-  --stripes-opacity: 0.25;
+.stripes-size-md {
+  --stripes-size: 20px;
 }
 
 @font-face {
