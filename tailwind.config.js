@@ -29,7 +29,8 @@ module.exports = {
           "--stripes-rgb": "0 0 0",
           "--stripes-angle": "-45deg",
           "--stripes-opacity": "1",
-          "--stripes-size": "20px"
+          "--stripes-size": "20px",
+          "--stripes-speed": "1s"
         },
         "@keyframes slide": {
           from: { transform: "translateX(0)" },
@@ -38,7 +39,6 @@ module.exports = {
       })
 
       // add components 
-
       addComponents({
          ".stripes": {
             position: "relative",
@@ -62,7 +62,7 @@ module.exports = {
               transparent 55% 95%, 
               var(--stripes-color) 95% 100%)`,
             backgroundSize: "var(--stripes-size) var(--stripes-size)",
-            animation: "slide 1s infinite linear"
+            animation: "slide var(--stripes-speed) infinite linear"
           }
       })
 
@@ -81,6 +81,7 @@ module.exports = {
         values : theme('opacity')
       })
 
+      //size modifiers
       matchUtilities({
         'stripes-size': value => ({
           '--stripes-size' : value
@@ -89,6 +90,24 @@ module.exports = {
         values: theme('stripesSize')
       })
 
+      //speed modifires
+      matchUtilities({
+        'stripes-speed': value => ({ 
+          '--stripes-speed' : value
+        })
+      } , {
+        values: theme('stripesSpeed')
+      })
+
+
+    } , {
+      theme: {
+        stripesSpeed : {
+          s: '1s',
+          m: '0.5s',
+          f: '0.3s'
+        }
+      }
     })
   ],
 }

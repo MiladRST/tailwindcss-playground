@@ -439,6 +439,7 @@ video {
   --stripes-angle: -45deg;
   --stripes-opacity: 1;
   --stripes-size: 20px;
+  --stripes-speed: 1s;
 }
 
 @keyframes slide {
@@ -608,7 +609,7 @@ video {
               transparent 55% 95%, 
               var(--stripes-color) 95% 100%);
   background-size: var(--stripes-size) var(--stripes-size);
-  animation: slide 1s infinite linear;
+  animation: slide var(--stripes-speed) infinite linear;
 }
 
 .mx-auto {
@@ -697,20 +698,28 @@ video {
   --stripes-opacity: 0.3;
 }
 
-.stripes-size-xl {
-  --stripes-size: 40px;
-}
-
 .stripes-size-\[90px\] {
   --stripes-size: 90px;
+}
+
+.stripes-size-md {
+  --stripes-size: 20px;
 }
 
 .stripes-size-sm {
   --stripes-size: 12px;
 }
 
-.stripes-size-md {
-  --stripes-size: 20px;
+.stripes-size-xl {
+  --stripes-size: 40px;
+}
+
+.stripes-speed-f {
+  --stripes-speed: 0.3s;
+}
+
+.stripes-speed-m {
+  --stripes-speed: 0.5s;
 }
 
 @font-face {
