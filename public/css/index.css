@@ -435,17 +435,19 @@ video {
 }
 
 :root {
-  --stripes-color: black;
+  --stripes-rgb: 0 0 0;
   --stripes-angle: -45deg;
+  --stripes-opacity: 1;
+  --stripes-size: 20px;
 }
 
 @keyframes slide {
   from {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(20px);
+    transform: translateX(var(--stripes-size));
   }
 }
 
@@ -583,23 +585,29 @@ video {
   }
 }
 
-.stripes{
+.stripes {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
 .stripes::before {
+  --stripes-color: rgb(var(--stripes-rgb) / var(--stripes-opacity));
   position: absolute;
   z-index: -1;
   top: 0;
   right: 0;
   height: 100%;
-  width: calc(100% + 20px);
+  width: calc(100% + var(--stripes-size));
   content: "";
-  background-image: linear-gradient( var(--stripes-angle),
-        var(--stripes-color) 5%, transparent 5% 45%,var(--stripes-color) 45% 55%, transparent 55% 95%, var(--stripes-color) 95% 100%);
-  background-size: 20px 20px;
+  background-image: linear-gradient( 
+              var(--stripes-angle), 
+              var(--stripes-color) 5%, 
+              transparent 5% 45%,
+              var(--stripes-color) 45% 55%, 
+              transparent 55% 95%, 
+              var(--stripes-color) 95% 100%);
+  background-size: var(--stripes-size) var(--stripes-size);
   animation: slide 1s infinite linear;
 }
 
@@ -666,11 +674,43 @@ video {
 }
 
 .stripes-white {
-  --stripes-color: white;
+  --stripes-rgb: 255 255 255;
 }
 
 .stripes-reverse {
   --stripes-angle: 45deg;
+}
+
+.stripes-opacity-20 {
+  --stripes-opacity: 0.2;
+}
+
+.stripes-opacity-50 {
+  --stripes-opacity: 0.5;
+}
+
+.stripes-opacity-30 {
+  --stripes-opacity: 0.3;
+}
+
+.stripes-opacity-80 {
+  --stripes-opacity: 0.8;
+}
+
+.stripes-opacity-60 {
+  --stripes-opacity: 0.6;
+}
+
+.stripes-opacity-0 {
+  --stripes-opacity: 0;
+}
+
+.stripes-opacity-10 {
+  --stripes-opacity: 0.1;
+}
+
+.stripes-opacity-25 {
+  --stripes-opacity: 0.25;
 }
 
 @font-face {
@@ -701,3 +741,55 @@ video {
 use @layer directive to tell tailwind wich "bucket" a set of custom styles belong to.
 Valid layers are 'base', 'components', and 'utilities' 
 */
+
+/* @layer base {
+
+    :root {
+        --stripes-rgb: 0 0 0;
+        --stripes-angle: -45deg;
+        --stripes-opacity: 1;
+        --stripes-size: 20px;
+
+    }
+    @keyframes slide {
+        from {
+            transform: translateX(0)
+        }
+        to {
+            transform: translateX(var(--stripes-size));
+        }
+    }
+} */
+
+/* @layer components {
+    .stripes{
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+    
+    .stripes::before {
+        --stripes-color: rgb(var(--stripes-rgb) / var(--stripes-opacity));
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: calc(100% + var(--stripes-size));
+        content: "";
+        background-image: linear-gradient( var(--stripes-angle),
+        var(--stripes-color) 5%, transparent 5% 45%,var(--stripes-color) 45% 55%, transparent 55% 95%, var(--stripes-color) 95% 100%);
+        background-size: var(--stripes-size) var(--stripes-size);
+        animation: slide 1s infinite linear;
+    }
+} */
+
+/* @layer utilities {
+    .stripes-white {
+        --stripes-color: 255 255 255;
+    }
+
+    .stripes-reverse {
+        --stripes-angle: 45deg;
+    }
+} */

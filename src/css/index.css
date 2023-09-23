@@ -21,23 +21,27 @@
 use @layer directive to tell tailwind wich "bucket" a set of custom styles belong to.
 Valid layers are 'base', 'components', and 'utilities' 
 */
-@layer base {
+
+/* @layer base {
 
     :root {
-        --stripes-color: black;
-        --stripes-angle: -45deg; 
+        --stripes-rgb: 0 0 0;
+        --stripes-angle: -45deg;
+        --stripes-opacity: 1;
+        --stripes-size: 20px;
+
     }
     @keyframes slide {
         from {
             transform: translateX(0)
         }
         to {
-            transform: translateX(20px);
+            transform: translateX(var(--stripes-size));
         }
     }
-}
+} */
 
-@layer components {
+/* @layer components {
     .stripes{
         position: relative;
         overflow: hidden;
@@ -45,26 +49,27 @@ Valid layers are 'base', 'components', and 'utilities'
     }
     
     .stripes::before {
+        --stripes-color: rgb(var(--stripes-rgb) / var(--stripes-opacity));
         position: absolute;
         z-index: -1;
         top: 0;
         right: 0;
         height: 100%;
-        width: calc(100% + 20px);
+        width: calc(100% + var(--stripes-size));
         content: "";
         background-image: linear-gradient( var(--stripes-angle),
         var(--stripes-color) 5%, transparent 5% 45%,var(--stripes-color) 45% 55%, transparent 55% 95%, var(--stripes-color) 95% 100%);
-        background-size: 20px 20px;
+        background-size: var(--stripes-size) var(--stripes-size);
         animation: slide 1s infinite linear;
     }
-}
+} */
 
-@layer utilities {
+/* @layer utilities {
     .stripes-white {
-        --stripes-color: white;
+        --stripes-color: 255 255 255;
     }
 
     .stripes-reverse {
         --stripes-angle: 45deg;
     }
-}
+} */
