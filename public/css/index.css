@@ -568,14 +568,40 @@ video {
   }
 }
 
+.stripes {
+  background-image: linear-gradient( -45deg,black 5%, transparent 5% 45%,black 45% 55%, transparent 55% 95%, black 95% 100%);
+  background-size: 20px 20px;
+}
+
+.m-6 {
+  margin: 1.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-.bg-gray-600 {
+.h-16 {
+  height: 4rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-gray-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.bg-pink-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 39 119 / var(--tw-bg-opacity));
 }
 
 .font-iransans {
@@ -622,3 +648,8 @@ video {
 
   src: url("../../public/fonts/YekanBakh.ttf");
 }
+
+/* 
+use @layer directive to tell tailwind wich "bucket" a set of custom styles belong to.
+Valid layers are 'base', 'components', and 'utilities' 
+*/
