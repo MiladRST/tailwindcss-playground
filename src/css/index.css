@@ -22,6 +22,11 @@ use @layer directive to tell tailwind wich "bucket" a set of custom styles belon
 Valid layers are 'base', 'components', and 'utilities' 
 */
 @layer base {
+
+    :root {
+        --stripes-color: black;
+        --stripes-angle: -45deg; 
+    }
     @keyframes slide {
         from {
             transform: translateX(0)
@@ -47,8 +52,19 @@ Valid layers are 'base', 'components', and 'utilities'
         height: 100%;
         width: calc(100% + 20px);
         content: "";
-        background-image: linear-gradient( -45deg,black 5%, transparent 5% 45%,black 45% 55%, transparent 55% 95%, black 95% 100%);
+        background-image: linear-gradient( var(--stripes-angle),
+        var(--stripes-color) 5%, transparent 5% 45%,var(--stripes-color) 45% 55%, transparent 55% 95%, var(--stripes-color) 95% 100%);
         background-size: 20px 20px;
         animation: slide 1s infinite linear;
+    }
+}
+
+@layer utilities {
+    .stripes-white {
+        --stripes-color: white;
+    }
+
+    .stripes-reverse {
+        --stripes-angle: 45deg;
     }
 }
